@@ -1,0 +1,26 @@
+.quiz_container{
+    background-color: aliceblue;
+    max-width: 600px;
+    margin: auto;
+    padding: 30px;
+    box-shadow: 0px 0px 6px #d7c6c6;
+    border-radius: 5px;
+    margin-top: 30px;
+}
+.option_container{
+    display: grid;
+    grid-template-columns: 45% 45%;
+    grid-gap: 12px;
+    font-size: 16px;
+    padding: 20px;
+}
+.btn {
+    background: teal;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
