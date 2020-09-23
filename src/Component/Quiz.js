@@ -1,57 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import "./quiz.css";
 import CommonRadioBtn from "./CommonRadioBtn";
 import data from "./data";
+console.log("data", data[0]);
 function Quiz() {
+  const [activeIndex, setActiveIndex] = useState(0);
   return (
     <div className="quiz_container">
       <h1>hello quiz</h1>
-      {data.map((each, index) => {
-        console.log(each, "eacheacheach");
-        return (
-          <div>
-            <p>{each?.question}</p>
-            <div className="option_container">
-              {each?.options.map((items) => {
-                console.log("Quiz -> items", items);
-                return (
-                  <CommonRadioBtn
-                    value="i m value"
-                    id={items.id}
-                    htmlfor={items.id}
-                    labelVal={items.label}
-                    name="samename"
-                  />
-                );
-              })}
-            </div>
-          </div>
-        );
-      })}
-      {/* <div className="option_container">
-        <CommonRadioBtn
-          value="i m value"
-          id="id2"
-          htmlfor="id2"
-          labelVal="Label second"
-          name="samename"
-        />
-        <CommonRadioBtn
-          value="i m value"
-          id="id3"
-          htmlfor="id3"
-          labelVal="Label third"
-          name="samename"
-        />
-        <CommonRadioBtn
-          value="i m value"
-          id="id4"
-          htmlfor="id4"
-          labelVal="Label four"
-          name="samename"
-        />
-      </div> */}
-      <button className="btn">Next</button>
+      <div>
+        <p>{data[0]?.question}</p>
+        <div className="option_container">
+          {data[0].options.map((item, i) => {
+            return (
+              <CommonRadioBtn
+                value="i m value"
+                id={item.id}
+                htmlfor={item.id}
+                labelVal={item.label}
+                name="samename"
+              />
+            );
+          })}
+        </div>
+      </div>
+      <button
+        onClick={() => {
+          console.log("next");
+        }}
+        className="btn"
+      >
+        Next
+      </button>
     </div>
   );
 }

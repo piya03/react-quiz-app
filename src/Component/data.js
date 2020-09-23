@@ -1,6 +1,6 @@
 const data = [
   {
-    question: "what is typeof",
+    question: "what is typeof ?",
     options: [
       {
         label: "type 1",
@@ -22,7 +22,7 @@ const data = [
     answer: "2",
   },
   {
-    question: "what is react",
+    question: "what is react ?",
     options: [
       {
         label: "react 1",
