@@ -43,6 +43,50 @@ const data = [
     ],
     answer: "7",
   },
+  {
+    question: "what is css ?",
+    options: [
+      {
+        label: "css 1",
+        id: "9",
+      },
+      {
+        label: "css 2",
+        id: "10",
+      },
+      {
+        label: "css 3",
+        id: "11",
+      },
+      {
+        label: "css 4",
+        id: "12",
+      },
+    ],
+    answer: "12",
+  },
+  {
+    question: "what is js ?",
+    options: [
+      {
+        label: "react 1",
+        id: "13",
+      },
+      {
+        label: "react 2",
+        id: "14",
+      },
+      {
+        label: "react 3",
+        id: "15",
+      },
+      {
+        label: "react 4",
+        id: "16",
+      },
+    ],
+    answer: "13",
+  },
 ];
 
 export default data;
