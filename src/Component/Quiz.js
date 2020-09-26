@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./quiz.css";
 import CommonRadioBtn from "./CommonRadioBtn";
 import data from "./data";
@@ -6,13 +6,21 @@ console.log("data", data.length);
 function Quiz() {
   const [activeIndex, setActiveIndex] = useState(0);
   console.log("Quiz -> activeIndex", activeIndex);
-
+  const [dataAns, setDataAns] = useState([]);
+  console.log("Quiz -> dataAns", dataAns);
   const [one, setOne] = useState("");
   const [ans, setAns] = useState([]);
-  const [result, setResult] = useState(false);
+  const [count, setCount] = useState(0);
+  console.log("Quiz -> count", count);
   console.log("Quiz -> ans", ans);
-  console.log("Quiz -> one", one);
+  const [result, setResult] = useState(false);
 
+  useEffect(() => {
+    const m = data.map((each, i) => {
+      return each.answer;
+    });
+    setDataAns(m);
+  }, []);
   function next() {
     if (activeIndex < data.length - 1) {
       setActiveIndex((prev) => prev + 1);
@@ -21,6 +29,16 @@ function Quiz() {
       setActiveIndex(0);
     }
   }
+  function countFun() {
+    if (dataAns[activeIndex] === ans[activeIndex]) {
+      setCount(() => count + 1);
+    }
+  }
+  // useEffect(() => {
+  //   if (dataAns[activeIndex] === ans[activeIndex]) {
+  //     setCount(() => count + 1);
+  //   }
+  // }, [activeIndex]);
   return (
     <div className="quiz_container">
       <h1>hello quiz</h1>
@@ -49,11 +67,19 @@ function Quiz() {
           </div>
         </div>
       ) : (
-        <p>Your result</p>
+        <p>You have given {count} right Answer</p>
       )}
-      <button onClick={next} className="btn">
-        Next
-      </button>
+      {!result ? (
+        <button
+          onClick={() => {
+            next();
+            countFun();
+          }}
+          className="btn"
+        >
+          Next
+        </button>
+      ) : null}
     </div>
   );
 }
